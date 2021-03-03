@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import axios from "axios";
 import React, { useState } from "react";
+import Navigation from "./Navigation";
 
 export default function Header() {
   const [username, setUsername] = useState("");
@@ -23,6 +24,7 @@ export default function Header() {
 
   return (
     <header>
+      <Navigation />
       <h1>Github profile finder</h1>
       <form>
         <input
