@@ -2,6 +2,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Navigation from "./Navigation";
+import "../styles/Header.scss";
+import SearchIcon from "../assets/search.svg";
 
 export default function Header() {
   const [username, setUsername] = useState("");
@@ -24,9 +26,16 @@ export default function Header() {
 
   return (
     <header>
-      <Navigation />
-      <h1>Github profile finder</h1>
-      <form>
+      <div className="header_wrapper">
+        <Navigation />
+        {!userData ? (
+          <h1>Github profile finder</h1>
+        ) : (
+          <h1>Profile: {userData.login}</h1>
+        )}
+      </div>
+      <form id="search">
+        <img alt="search" src={SearchIcon} />
         <input
           type="text"
           placeholder="Search for github profile"
@@ -36,8 +45,6 @@ export default function Header() {
           Search
         </button>
       </form>
-      <p>{userData ? userData.name : null}</p>
-      <img alt="avatar" src={userData ? userData.avatar_url : null} />
     </header>
   );
 }
