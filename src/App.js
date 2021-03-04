@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-filename-extension */
 import "./App.css";
 import React from "react";
-import Header from "./components/Header";
+import Home from "./screens/Home";
 
 const App = () => (
   <div className="App">
-    <Header />
+    <Home />
   </div>
 );
 
