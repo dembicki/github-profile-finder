@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Navigation.scss";
 
 export default function Navigation() {
@@ -7,13 +8,13 @@ export default function Navigation() {
     <nav>
       <ul>
         <li>
-          <a href="">search</a>
+          <Link to="/">search</Link>
         </li>
         <li>
-          <a href="">about project</a>
+          <Link to="/about">about project</Link>
         </li>
         <li>
-          <a href="">factorial</a>
+          <Link to="/factorial">factorial</Link>
         </li>
       </ul>
     </nav>

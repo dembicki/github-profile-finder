@@ -6,9 +6,8 @@ import Navigation from "./Navigation";
 import "../styles/Header.scss";
 import SearchIcon from "../assets/search.svg";
 
-export default function Header({ title }) {
+export default function Header({ title, clean }) {
   const [username, setUsername] = useState("");
-  // const [loading, setLoading] = useState(false);
   const [userData, setUserData] = useState();
 
   const getData = async () => {
@@ -36,15 +35,17 @@ export default function Header({ title }) {
         <Navigation />
         {!userData ? <h1>{title}</h1> : <h1>Profile: {userData.login}</h1>}
       </div>
-      <form id="search" onSubmit={handleSubmit}>
-        <img alt="search" src={SearchIcon} />
-        <input
-          type="text"
-          placeholder="Search for github profile"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
+      {!clean ? (
+        <form id="search" onSubmit={handleSubmit}>
+          <img alt="search" src={SearchIcon} />
+          <input
+            type="text"
+            placeholder="Search for github profile"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <button type="submit">Search</button>
+        </form>
+      ) : null}
     </header>
   );
 }
