@@ -2,8 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import "../styles/ReposList.scss";
 
-export default function ReposList() {
-  const repos = useSelector((state) => state.repos);
+export default function ReposList(factorial) {
+  const repos = !factorial
+    ? useSelector((state) => state.github.repos)
+    : useSelector((state) => state.factorial.history);
 
   return (
     <>
@@ -11,7 +13,7 @@ export default function ReposList() {
       <ul className="repos">
         {repos ? (
           repos.map((e) => (
-            <li>
+            <li key={e.id}>
               <span className="repoName">{e.name}</span>
               <span className="repoDate">Updated: {e.updated_at}</span>
             </li>

@@ -7,9 +7,9 @@ export default function Factorial() {
   return (
     <div>
       <Header title="Factorial calculator" />
-      <Search />
+      <Search factorial />
       <ContentWrapper>
-        <p>this is factorial page</p>
+        <h2>Output: 5! = 120</h2>
       </ContentWrapper>
     </div>
   );
