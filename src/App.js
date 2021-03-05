@@ -14,7 +14,7 @@ const App = () => (
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/:username/:repoId/commits">
+        <Route exact path="/:username/:repoName/commits">
           <Repo />
         </Route>
         <Route exact path="/about">

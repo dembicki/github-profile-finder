@@ -1,16 +1,20 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import "../styles/List.scss";
 import { addCommits } from "../app/github/duck/actions";
 
 export default function CommitList() {
   const commits = useSelector((state) => state.github.commits);
+  const username = useSelector((state) => state.github.login);
+  const { repoName } = useParams();
   const dispatch = useDispatch();
+
   const getCommits = async () => {
     axios
       .get(
-        `https://api.github.com/repos/dembicki/github-profile-finder/commits?per_page=5`
+        `https://api.github.com/repos/${username}/${repoName}/commits?per_page=5`
       )
       .then((res) => res.data)
       .then((data) => dispatch(addCommits(data)));
