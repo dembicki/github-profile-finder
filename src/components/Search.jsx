@@ -56,7 +56,7 @@ export default function Search({ isFactorial }) {
     <form id="search" onSubmit={!isFactorial ? handleSubmit : factorialSubmit}>
       <img alt="search" src={SearchIcon} />
       <input
-        type="text"
+        type={!isFactorial ? "text" : "number"}
         placeholder={
           !isFactorial ? "Search for github profile" : "Input n value for n!"
         }
