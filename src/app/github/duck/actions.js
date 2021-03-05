@@ -10,10 +10,15 @@ const reset = (item) => ({
   item,
 });
 
-const addData = (item) => ({
-  type: types.ADD_DATA,
-  item,
-})
+export const addLogin = (item) => ({
+  type: types.ADD_LOGIN,
+  payload: item,
+});
+
+export const addRepos = (item) => ({
+  type: types.ADD_REPOS,
+  payload: item,
+});
 
 export default {
   add,

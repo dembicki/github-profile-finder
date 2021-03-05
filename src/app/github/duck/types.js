@@ -1,9 +1,11 @@
 const ADD_MOVIE = "ADD_MOVIE";
 const RESET_MOVIES = "RESET_MOVIES";
-const ADD_DATA = "ADD_DATA";
+const ADD_LOGIN = "ADD_LOGIN";
+const ADD_REPOS = "ADD_REPOS";
 
 export default {
   ADD_MOVIE,
   RESET_MOVIES,
-  ADD_DATA,
+  ADD_LOGIN,
+  ADD_REPOS,
 };

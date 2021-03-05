@@ -2,21 +2,30 @@
 /* eslint-disable no-console */
 import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addLogin, addRepos } from "../app/github/duck/actions";
+
 import Navigation from "./Navigation";
 import "../styles/Header.scss";
 import SearchIcon from "../assets/search.svg";
 
 export default function Header({ title, clean }) {
+  // TODO: change to ref
   const [username, setUsername] = useState("");
 
+  const dispatch = useDispatch();
+
   const getData = async () => {
+    // TODO: sprawdzenie poprawności loginu
     if (username) {
       axios
         .get(`https://api.github.com/users/${username}`)
         .then((res) => res.data)
-        .then((data) => {
-          console.log(data);
-        });
+        .then((data) => dispatch(addLogin(data.login)));
+      axios
+        .get(`https://api.github.com/users/${username}/repos`)
+        .then((res) => res.data)
+        .then((data) => dispatch(addRepos(data)));
     } else {
       console.log("username empty");
     }
