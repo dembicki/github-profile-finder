@@ -1,0 +1,19 @@
+.reposHeading {
+  padding-top: 1rem;
+}
+
+.repos {
+  padding: 1rem;
+  li {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    &:nth-child(even) {
+      background-color: #e7e7e7;
+    }
+  }
+}

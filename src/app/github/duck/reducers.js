@@ -2,12 +2,10 @@ import types from "./types";
 
 const INITIAL_STATE = {
   login: "",
-  repos: [{
-    title: 'test'
-  }],
+  repos: [{}],
 };
 
-const githubReducer = (state = INITIAL_STATE, action) => {
+const githubReducer = (state = {}, action) => {
   switch (action.type) {
     case types.ADD_LOGIN:
       return {
