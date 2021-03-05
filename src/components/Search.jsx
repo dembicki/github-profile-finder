@@ -16,14 +16,14 @@ export default function Search({ isFactorial }) {
   // https://api.github.com/repos/dembicki/?sort=updated
 
   const getData = async () => {
-    // TODO: sprawdzenie poprawności loginu
+    const URL = "https://api.github.com";
     if (username) {
       axios
-        .get(`https://api.github.com/users/${username}`)
+        .get(`${URL}/users/${username}`)
         .then((res) => res.data)
         .then((data) => dispatch(addLogin(data.login)));
       axios
-        .get(`https://api.github.com/users/${username}/repos?per_page=5`)
+        .get(`${URL}/users/${username}/repos?per_page=5&sort=updated`)
         .then((res) => res.data)
         .then((data) => dispatch(addRepos(data)));
     } else {
