@@ -8,7 +8,6 @@ import SearchIcon from "../assets/search.svg";
 
 export default function Header({ title, clean }) {
   const [username, setUsername] = useState("");
-  const [userData, setUserData] = useState();
 
   const getData = async () => {
     if (username) {
@@ -16,7 +15,6 @@ export default function Header({ title, clean }) {
         .get(`https://api.github.com/users/${username}`)
         .then((res) => res.data)
         .then((data) => {
-          setUserData(data);
           console.log(data);
         });
     } else {
@@ -33,7 +31,7 @@ export default function Header({ title, clean }) {
     <header>
       <div className="header_wrapper">
         <Navigation />
-        {!userData ? <h1>{title}</h1> : <h1>Profile: {userData.login}</h1>}
+        <h1>{title}</h1>
       </div>
       {!clean ? (
         <form id="search" onSubmit={handleSubmit}>
