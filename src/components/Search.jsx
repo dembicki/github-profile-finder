@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addLogin, addRepos } from "../app/github/duck/actions";
@@ -12,23 +12,32 @@ export default function Search({ isFactorial }) {
   const [username, setUsername] = useState("");
   const [input, setInput] = useState(0);
   const dispatch = useDispatch();
+  const [err, setErr] = useState();
 
   // https://api.github.com/repos/dembicki/?sort=updated
 
   const getData = async () => {
     const URL = "https://api.github.com";
-    if (username) {
-      axios
-        .get(`${URL}/users/${username}`)
-        .then((res) => res.data)
-        .then((data) => dispatch(addLogin(data.login)));
-      axios
-        .get(`${URL}/users/${username}/repos?per_page=5&sort=updated`)
-        .then((res) => res.data)
-        .then((data) => dispatch(addRepos(data)));
-    } else {
-      // eslint-disable-next-line no-console
-      console.log("username empty");
+    axios
+      .get(`${URL}/users/${username}`)
+      .then((res) => res.data)
+      .then((data) => dispatch(addLogin(data.login)));
+
+    axios
+      .get(`${URL}/users/${username}/repos?per_page=5&sort=updated`)
+      .then((res) => res.data)
+      .then((data) => dispatch(addRepos(data)));
+  };
+
+  const checkUserAndGetData = async () => {
+    setErr();
+    try {
+      const response = await axios.get(
+        `https://api.github.com/users/${username}`
+      );
+      getData();
+    } catch (error) {
+      if (error.response) setErr("Error: login doesn't exist");
     }
   };
 
@@ -42,7 +51,7 @@ export default function Search({ isFactorial }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    getData();
+    checkUserAndGetData();
   };
 
   const factorialSubmit = (e) => {
@@ -53,20 +62,26 @@ export default function Search({ isFactorial }) {
   };
 
   return (
-    <form id="search" onSubmit={!isFactorial ? handleSubmit : factorialSubmit}>
-      <img alt="search" src={SearchIcon} />
-      <input
-        type={!isFactorial ? "text" : "number"}
-        placeholder={
-          !isFactorial ? "Search for github profile" : "Input n value for n!"
-        }
-        onChange={
-          !isFactorial
-            ? (e) => setUsername(e.target.value)
-            : (e) => setInput(e.target.value)
-        }
-      />
-      <button type="submit">{!isFactorial ? "Search" : "Calculate"}</button>
-    </form>
+    <>
+      <p className="error">{err}</p>
+      <form
+        id="search"
+        onSubmit={!isFactorial ? handleSubmit : factorialSubmit}
+      >
+        <img alt="search" src={SearchIcon} />
+        <input
+          type={!isFactorial ? "text" : "number"}
+          placeholder={
+            !isFactorial ? "Search for github profile" : "Input n value for n!"
+          }
+          onChange={
+            !isFactorial
+              ? (e) => setUsername(e.target.value)
+              : (e) => setInput(e.target.value)
+          }
+        />
+        <button type="submit">{!isFactorial ? "Search" : "Calculate"}</button>
+      </form>
+    </>
   );
 }

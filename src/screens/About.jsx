@@ -25,7 +25,7 @@ export default function About() {
             </li>
             <li>
               wyświetla maksymalnie 5 projektów w kolejności od ostatnio
-              updatowanego
+              updatowanego ✅
             </li>
             <li>wyświetla maksymalnie 5 commitów każdego z projektów ✅</li>
           </ul>
