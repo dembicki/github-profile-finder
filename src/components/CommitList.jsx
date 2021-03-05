@@ -41,7 +41,8 @@ export default function CommitList() {
                     </span>
                   </div>
                   <span className="listDate">
-                    Updated: {e.commit.committer.date}
+                    Updated:{" "}
+                    {e.commit.committer.date.replace("T", " ").replace("Z", "")}
                   </span>
                 </li>
               </a>

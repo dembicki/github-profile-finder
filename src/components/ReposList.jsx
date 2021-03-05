@@ -20,7 +20,9 @@ export default function ReposList() {
             >
               <li key={e.id}>
                 <span className="listName">{e.name}</span>
-                <span className="listDate">Updated: {e.updated_at}</span>
+                <span className="listDate">
+                  Updated: {e.updated_at.replace("T", " ").replace("Z", "")}
+                </span>
               </li>
             </Link>
           ))
