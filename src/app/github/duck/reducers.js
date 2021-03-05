@@ -3,6 +3,7 @@ import types from "./types";
 const INITIAL_STATE = {
   login: "",
   repos: [{}],
+  commits: [{}],
 };
 
 const githubReducer = (state = {}, action) => {
@@ -16,6 +17,10 @@ const githubReducer = (state = {}, action) => {
       return {
         ...state,
         repos: action.payload,
+      };
+    case types.ADD_COMMITS:
+      return {
+        commits: action.payload,
       };
     default:
       return state;

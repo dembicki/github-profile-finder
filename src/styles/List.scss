@@ -5,6 +5,9 @@
 
 .list {
   padding: 1rem;
+  Link {
+    text-decoration: none;
+  }
   li {
     display: flex;
     justify-content: space-between;
@@ -16,5 +19,19 @@
     &:nth-child(even) {
       background-color: #e7e7e7;
     }
+    a {
+      text-decoration: none;
+      color: black;
+    }
   }
+}
+
+.commits {
+  display: block;
+  color: red;
+}
+
+.authorName {
+  color: gray;
+  margin-left: 10px;
 }

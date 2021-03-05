@@ -10,4 +10,9 @@ export const addRepos = (item) => ({
   payload: item,
 });
 
+export const addCommits = (item) => ({
+  type: types.ADD_COMMITS,
+  payload: item,
+});
+
 export default {};

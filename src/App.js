@@ -5,6 +5,7 @@ import React from "react";
 import Home from "./screens/Home";
 import About from "./screens/About";
 import Factorial from "./screens/Factorial";
+import Repo from "./screens/Repo";
 
 const App = () => (
   <div className="App">
@@ -12,6 +13,9 @@ const App = () => (
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/:username/:repoId/commits">
+          <Repo />
         </Route>
         <Route exact path="/about">
           <About />

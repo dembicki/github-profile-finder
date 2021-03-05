@@ -14,7 +14,7 @@ export default function HistoryList() {
             .slice(0)
             .reverse()
             .map((e) => (
-              <li key={e.input}>
+              <li>
                 <span className="listItem">
                   {e.input}! = {e.output}
                 </span>
