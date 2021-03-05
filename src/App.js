@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-filename-extension */
-import "./App.css";
+import "./App.scss";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React from "react";
 import Home from "./screens/Home";

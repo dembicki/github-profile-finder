@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+#requirements {
+  padding: 1rem;
+  text-align: center;
+  .author a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+}

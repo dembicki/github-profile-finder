@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ContentWrapper from "../components/ContentWrapper";
 import Header from "../components/Header";
 import ReposList from "../components/ReposList";

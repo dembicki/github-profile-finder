@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addLogin, addRepos } from "../app/github/duck/actions";
 
 import "../styles/Search.scss";
