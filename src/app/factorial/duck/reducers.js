@@ -1,8 +1,7 @@
-import { act } from "react-dom/test-utils";
 import types from "./types";
 
 const INITIAL_STATE = {
-  history: []
+  history: [],
 };
 
 const factorialReducer = (state = INITIAL_STATE, action) => {
@@ -10,7 +9,10 @@ const factorialReducer = (state = INITIAL_STATE, action) => {
     case types.ADD_HISTORY:
       return {
         ...state,
-        history: [...state.history, { input: action.input, output: action.output }]
+        history: [
+          ...state.history,
+          { input: action.input, output: action.output },
+        ],
       };
     default:
       return state;

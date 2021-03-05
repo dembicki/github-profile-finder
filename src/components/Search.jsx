@@ -7,7 +7,7 @@ import { addHistory } from "../app/factorial/duck/actions";
 import "../styles/Search.scss";
 import SearchIcon from "../assets/search.svg";
 
-export default function Search({ factorial }) {
+export default function Search({ isFactorial }) {
   // TODO: change to ref
   const [username, setUsername] = useState("");
   const [input, setInput] = useState(0);
@@ -25,6 +25,7 @@ export default function Search({ factorial }) {
         .then((res) => res.data)
         .then((data) => dispatch(addRepos(data)));
     } else {
+      // eslint-disable-next-line no-console
       console.log("username empty");
     }
   };
@@ -50,20 +51,20 @@ export default function Search({ factorial }) {
   };
 
   return (
-    <form id="search" onSubmit={!factorial ? handleSubmit : factorialSubmit}>
+    <form id="search" onSubmit={!isFactorial ? handleSubmit : factorialSubmit}>
       <img alt="search" src={SearchIcon} />
       <input
         type="text"
         placeholder={
-          !factorial ? "Search for github profile" : "Input n value for n!"
+          !isFactorial ? "Search for github profile" : "Input n value for n!"
         }
         onChange={
-          !factorial
+          !isFactorial
             ? (e) => setUsername(e.target.value)
             : (e) => setInput(e.target.value)
         }
       />
-      <button type="submit">{!factorial ? "Search" : "Calculate"}</button>
+      <button type="submit">{!isFactorial ? "Search" : "Calculate"}</button>
     </form>
   );
 }

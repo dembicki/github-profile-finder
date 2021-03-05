@@ -25,7 +25,7 @@ export default function About() {
             </li>
             <li>
               wyświetla maksymalnie 5 projektów w kolejności od ostatnio
-              updatowanego ✅
+              updatowanego
             </li>
             <li>wyświetla maksymalnie 5 commitów każdego z projektów</li>
           </ul>
@@ -39,7 +39,7 @@ export default function About() {
             <li>
               input do podania liczby dla której bedzie wyliczona silnia ✅
             </li>
-            <li>historia poprzednich wyszukiwań</li>
+            <li>historia poprzednich wyszukiwań ✅</li>
           </ul>
           <h3>Wymagania ogólne</h3>
           <ul>

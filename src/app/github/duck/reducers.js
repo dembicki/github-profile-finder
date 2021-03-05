@@ -11,12 +11,12 @@ const githubReducer = (state = {}, action) => {
       return {
         ...state,
         login: action.payload,
-      }
+      };
     case types.ADD_REPOS:
       return {
         ...state,
         repos: action.payload,
-      }
+      };
     default:
       return state;
   }

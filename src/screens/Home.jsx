@@ -10,7 +10,7 @@ export default function Home() {
       <Header title="Github profile finder" />
       <Search />
       <ContentWrapper>
-        <ReposList />
+        <ReposList factorial />
       </ContentWrapper>
     </div>
   );
