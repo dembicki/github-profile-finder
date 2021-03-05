@@ -9,16 +9,6 @@ const INITIAL_STATE = {
 
 const githubReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "ADD_MOVIE":
-      return {
-        ...state,
-        list: [...state.list, action.item],
-      };
-    case "RESET_MOVIES":
-      return {
-        ...state,
-        list: [],
-      };
     case types.ADD_LOGIN:
       return {
         ...state,
