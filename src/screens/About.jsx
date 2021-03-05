@@ -20,7 +20,7 @@ export default function About() {
               Wykorzystane jest publiczne API Githuba ✅
               <ul>
                 <li> Czeka na podanie loginu użytkownika ✅</li>
-                <li>obsługuje nieistniejące loginy</li>
+                <li>obsługuje nieistniejące loginy ✅</li>
               </ul>
             </li>
             <li>
@@ -51,7 +51,7 @@ export default function About() {
             </li>
             <li>
               jest hostowana (github pages, heroku, itd..), a jej kod jest
-              dostępny publicznie
+              dostępny publicznie ✅
             </li>
             <li>Miło widziane użycie middlewarów reduxowych ✅</li>
           </ul>

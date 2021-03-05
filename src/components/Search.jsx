@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addLogin, addRepos } from "../app/github/duck/actions";
@@ -35,6 +35,8 @@ export default function Search({ isFactorial }) {
       const response = await axios.get(
         `https://api.github.com/users/${username}`
       );
+      // eslint-disable-next-line no-console
+      console.log(response);
       getData();
     } catch (error) {
       if (error.response) setErr("Error: login doesn't exist");
