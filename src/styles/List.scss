@@ -9,10 +9,6 @@
   a {
     text-decoration: none;
     color: black;
-    &:nth-child(even) {
-      color: blue;
-      background-color: red !important;
-    }
   }
 
   li {
@@ -23,10 +19,8 @@
     margin: 0.5rem 0;
     border: 2px solid #eee;
     border-radius: 5px;
-
-    a {
-      text-decoration: none;
-      color: black;
+    &:nth-child(even) {
+      // background-color: red;
     }
   }
 }

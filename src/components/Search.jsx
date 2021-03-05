@@ -13,6 +13,8 @@ export default function Search({ isFactorial }) {
   const [input, setInput] = useState(0);
   const dispatch = useDispatch();
 
+  // https://api.github.com/repos/dembicki/?sort=updated
+
   const getData = async () => {
     // TODO: sprawdzenie poprawności loginu
     if (username) {

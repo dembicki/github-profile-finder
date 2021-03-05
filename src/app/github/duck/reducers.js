@@ -1,10 +1,10 @@
 import types from "./types";
 
-const INITIAL_STATE = {
-  login: "",
-  repos: [{}],
-  commits: [{}],
-};
+// const INITIAL_STATE = {
+//   login: "",
+//   repos: [{}],
+//   commits: [{}],
+// };
 
 const githubReducer = (state = {}, action) => {
   switch (action.type) {
