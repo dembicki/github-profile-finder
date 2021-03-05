@@ -32,18 +32,22 @@ export default function CommitList() {
           commits
             .sort((a, b) => a.updated_at - b.updated_at)
             .map((e) => (
-              <li key={e.id}>
-                <div>
-                  <span className="listName">{e.commit.message}</span>
-                  <span className="authorName">by {e.commit.author.name}</span>
-                </div>
-                <span className="listDate">
-                  Updated: {e.commit.committer.date}
-                </span>
-              </li>
+              <a href={e.html_url} target="_blank" rel="noreferrer">
+                <li key={e.id}>
+                  <div>
+                    <span className="listName">{e.commit.message}</span>
+                    <span className="authorName">
+                      by {e.commit.author.name}
+                    </span>
+                  </div>
+                  <span className="listDate">
+                    Updated: {e.commit.committer.date}
+                  </span>
+                </li>
+              </a>
             ))
         ) : (
-          <p>Nothing here yet..</p>
+          <p>Loading..</p>
         )}
       </ul>
     </>
