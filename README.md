@@ -1,6 +1,6 @@
 # Github profile finder app
 
-##LIVE
+## LIVE
 https://github-account-finder.herokuapp.com/
 
 ## Tech stack:
