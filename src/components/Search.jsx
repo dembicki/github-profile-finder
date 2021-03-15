@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -8,13 +9,10 @@ import "../styles/Search.scss";
 import SearchIcon from "../assets/search.svg";
 
 export default function Search({ isFactorial }) {
-  // TODO: change to ref
   const [username, setUsername] = useState("");
   const [input, setInput] = useState(0);
   const dispatch = useDispatch();
   const [err, setErr] = useState();
-
-  // https://api.github.com/repos/dembicki/?sort=updated
 
   const getData = async () => {
     const URL = "https://api.github.com";
@@ -35,7 +33,6 @@ export default function Search({ isFactorial }) {
       const response = await axios.get(
         `https://api.github.com/users/${username}`
       );
-      // eslint-disable-next-line no-console
       console.log(response);
       getData();
     } catch (error) {
