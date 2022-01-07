@@ -1,22 +1,18 @@
+import produce from "immer";
 import types from "./types";
 
 const INITIAL_STATE = {
   history: [],
 };
 
-const factorialReducer = (state = INITIAL_STATE, action) => {
+const factorialReducer = produce((draft = INITIAL_STATE, action) => {
   switch (action.type) {
     case types.ADD_HISTORY:
-      return {
-        ...state,
-        history: [
-          ...state.history,
-          { input: action.input, output: action.output },
-        ],
-      };
+      draft.history.push({ input: action.input, output: action.output });
+      return draft;
     default:
-      return state;
+      return draft;
   }
-};
+});
 
 export default factorialReducer;

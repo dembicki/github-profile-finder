@@ -1,3 +1,4 @@
+import produce from "immer";
 import types from "./types";
 
 // const INITIAL_STATE = {
@@ -6,25 +7,20 @@ import types from "./types";
 //   commits: [{}],
 // };
 
-const githubReducer = (state = {}, action) => {
+const githubReducer = produce((draft = {}, action) => {
   switch (action.type) {
     case types.ADD_LOGIN:
-      return {
-        ...state,
-        login: action.payload,
-      };
+      draft.login = action.payload;
+      return draft;
     case types.ADD_REPOS:
-      return {
-        ...state,
-        repos: action.payload,
-      };
+      draft.repos = action.payload;
+      return draft;
     case types.ADD_COMMITS:
-      return {
-        commits: action.payload,
-      };
+      draft.commits = action.payload;
+      return draft;
     default:
-      return state;
+      return draft;
   }
-};
+});
 
 export default githubReducer;
